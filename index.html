@@ -33,74 +33,92 @@
             color: #888;
             font-size: 14px;
         }
+        .site-list {
+            background: #f5f5f5;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
     <h1>Aimo 隐私权政策</h1>
-    <p class="update-date">最后更新日期：2025年1月4日</p>
+    <p class="update-date">最后更新日期：2026年1月4日</p>
 
     <h2>1. 简介</h2>
     <p>Aimo 是一款 AI 记忆助手浏览器扩展程序，旨在帮助用户保存和管理与 AI 的对话内容。我们非常重视您的隐私，本政策说明了我们如何收集、使用和保护您的信息。</p>
 
     <h2>2. 信息收集</h2>
-    <p>Aimo 扩展程序可能收集以下类型的信息：</p>
+    <p>Aimo 扩展程序收集以下类型的信息：</p>
     <ul>
         <li><strong>用户设置</strong>：包括 Aimo 服务器地址、界面偏好等配置信息，存储在浏览器本地存储中。</li>
+        <li><strong>认证信息</strong>：登录令牌（token）、会话标识，用于与您配置的 Aimo 服务器建立连接与完成数据传输。</li>
         <li><strong>便签数据</strong>：您在扩展程序中创建的便签内容，存储在浏览器本地存储中。</li>
-        <li><strong>网页内容</strong>：当您主动使用"发送到 Aimo"功能时，扩展程序会获取当前网页的标题和内容。</li>
-        <li><strong>AI 对话内容</strong>：当您在支持的 AI 平台（如 ChatGPT、Claude 等）上使用扩展程序时，可以选择同步对话内容到您的 Aimo 服务器。</li>
+        <li><strong>网页内容</strong>：扩展程序仅在您主动点击"发送到 Aimo"时读取当前页面的标题和内容，不会在后台自动收集您的浏览历史或对所有网站进行抓取。</li>
+        <li><strong>AI 对话内容</strong>：当您在支持的 AI 平台上主动使用同步功能时，扩展程序会读取对话内容并发送到您配置的服务器。</li>
     </ul>
 
-    <h2>3. 信息使用</h2>
+    <h2>3. 内容脚本运行范围</h2>
+    <p>扩展程序仅在以下 AI 平台网站注入内容脚本，用于提供对话同步功能：</p>
+    <div class="site-list">
+        ChatGPT (chatgpt.com, chat.openai.com) · Claude (claude.ai) · Kimi (kimi.moonshot.cn, kimi.com, kimi.ai) · DeepSeek (chat.deepseek.com) · Gemini (gemini.google.com, aistudio.google.com, ai.google.dev)
+    </div>
+    <p>扩展程序不会在其他网站自动运行或收集数据。</p>
+
+    <h2>4. 信息使用</h2>
     <p>我们收集的信息仅用于以下目的：</p>
     <ul>
         <li>提供扩展程序的核心功能（便签管理、AI 对话同步等）</li>
         <li>将数据同步到您自行配置的 Aimo 服务器</li>
-        <li>改善用户体验</li>
     </ul>
 
-    <h2>4. 数据存储</h2>
+    <h2>5. 数据存储与传输</h2>
     <ul>
-        <li><strong>本地存储</strong>：用户设置和便签数据存储在浏览器的本地存储（chrome.storage.local）中，不会自动上传到任何服务器。</li>
-        <li><strong>服务器存储</strong>：如果您选择使用"发送到 Aimo"功能，数据将发送到您自行配置的 Aimo 服务器地址。我们不运营任何中央服务器来收集用户数据。</li>
+        <li><strong>本地存储</strong>：用户设置、认证令牌和便签数据存储在浏览器的本地存储（chrome.storage.local）中，不会自动上传到任何服务器。</li>
+        <li><strong>服务器传输</strong>：数据仅发送至您在扩展设置中填写的服务器地址；除非您主动配置，否则不会发送至其他第三方服务器。我们不运营任何中央服务器来收集用户数据。</li>
     </ul>
 
-    <h2>5. 数据共享</h2>
-    <p>我们不会将您的个人数据出售、交易或以其他方式转让给第三方。您的数据仅在以下情况下可能被传输：</p>
+    <h2>6. 数据共享</h2>
+    <p>我们不会将您的个人数据出售、交易或以其他方式转让给第三方。当前版本不与任何第三方共享数据。您的数据仅在以下情况下被传输：</p>
     <ul>
-        <li>发送到您自行配置的 Aimo 服务器</li>
+        <li>发送到您自行配置的 Aimo 服务器地址</li>
         <li>法律要求披露的情况</li>
     </ul>
 
-    <h2>6. 数据安全</h2>
-    <p>我们采取合理的技术措施保护您的数据安全，包括：</p>
+    <h2>7. 数据安全</h2>
+    <p>我们采取以下技术措施保护您的数据安全：</p>
     <ul>
-        <li>所有与服务器的通信建议使用 HTTPS 加密</li>
-        <li>敏感数据存储在浏览器本地，不经过第三方服务器</li>
+        <li>与远程服务器的通信使用 HTTPS/TLS 加密传输（本地开发环境 localhost/127.0.0.1 除外）。</li>
+        <li>认证令牌等敏感数据存储在浏览器本地存储中，不经过第三方服务器。</li>
+        <li>扩展程序不会在未经用户操作的情况下自动传输数据。</li>
     </ul>
 
-    <h2>7. 用户权利</h2>
+    <h2>8. 用户权利</h2>
     <p>您有权：</p>
     <ul>
-        <li>随时清除扩展程序存储的本地数据</li>
+        <li>随时在扩展程序设置中清除本地存储的数据</li>
         <li>卸载扩展程序以删除所有本地数据</li>
         <li>选择不使用云同步功能，仅使用本地便签</li>
+        <li>随时退出登录以清除认证信息</li>
     </ul>
 
-    <h2>8. 第三方网站</h2>
-    <p>扩展程序可能与第三方 AI 平台（如 ChatGPT、Claude、Kimi、DeepSeek、Gemini 等）交互。这些平台有各自的隐私政策，我们建议您查阅相关平台的隐私条款。</p>
+    <h2>9. 第三方网站</h2>
+    <p>扩展程序与第三方 AI 平台（ChatGPT、Claude、Kimi、DeepSeek、Gemini）交互以提供对话同步功能。这些平台有各自的隐私政策，我们建议您查阅相关平台的隐私条款。扩展程序不会向这些平台发送额外数据，仅读取您已有的对话内容。</p>
 
-    <h2>9. 儿童隐私</h2>
+    <h2>10. 儿童隐私</h2>
     <p>本扩展程序不面向 13 岁以下的儿童。我们不会故意收集儿童的个人信息。</p>
 
-    <h2>10. 政策更新</h2>
-    <p>我们可能会不时更新本隐私政策。更新后的政策将在此页面发布，并更新"最后更新日期"。</p>
+    <h2>11. 政策更新</h2>
+    <p>我们可能会不时更新本隐私政策。更新后的政策将在此页面发布，并更新"最后更新日期"。若我们未来新增数据收集类型或用途，将更新本政策，并在扩展内提供必要的提示与选择。</p>
 
-    <h2>11. 联系我们</h2>
+    <h2>12. 联系我们</h2>
     <p>如果您对本隐私政策有任何疑问，请通过以下方式联系我们：</p>
-    <p>邮箱：<a href="mailto:prrrrise@gmail.com">prrrrise@gmail.com</a></p>
+    <ul>
+        <li>支持邮箱：<a href="mailto:prrrrise@gmail.com">prrrrise@gmail.com</a></li>
+        <li>项目主页：<a href="https://github.com/prisssse/aimo-privacy" target="_blank">https://github.com/prisssse/aimo-privacy</a></li>
+    </ul>
 
     <hr style="margin-top: 40px; border: none; border-top: 1px solid #eee;">
-    <p style="font-size: 12px; color: #999; text-align: center;">© 2025 Aimo. All rights reserved.</p>
+    <p style="font-size: 12px; color: #999; text-align: center;">&copy; 2026 Aimo. All rights reserved.</p>
 </body>
 </html>
